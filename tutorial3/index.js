@@ -25,6 +25,23 @@ let notes = [
   }
 ]
 
+const logger = (request, response, next) => {
+  console.log('Method:',request.method)
+  console.log('Path:  ', request.path)
+  console.log('Body:  ', request.body)
+  console.log('---')
+  next()
+}
+
+app.use(logger)
+
+
+const error = (request, response) => {
+  response.status(404).send({error: 'unknown endpoint'})
+}
+
+app.use(error)
+
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
@@ -53,6 +70,8 @@ const generateId = () => {
 app.post('/notes', (request, response) => {
   const body = request.body
 
+  console.log("laa")
+
   if (body.content === undefined) {
     return response.status(400).json({ error: 'content missing' })
   }
@@ -76,7 +95,7 @@ app.delete('/notes/:id', (request, response) => {
   response.status(204).end()
 })
 
-const PORT = 3001
+const PORT = 3010
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
