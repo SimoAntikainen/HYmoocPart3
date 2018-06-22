@@ -49,7 +49,7 @@ class App extends React.Component {
     //console.log('did mount')
     
       personService.getAllPersons().then(response => {
-        console.log('promise fulfilled', response)
+        //console.log('promise fulfilled', response)
         this.setState({ persons: response.data })
       })
 
