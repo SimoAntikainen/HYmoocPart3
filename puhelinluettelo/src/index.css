@@ -1,0 +1,33 @@
+.success {
+  color: white;
+  background: rgb(14, 201, 14);
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 30px;
+  width: 25%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  text-align: center;
+}
+
+.removal {
+  color: white;
+  background: rgb(38, 150, 255);
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 30px;
+  width: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+
+.change {
+  color: white;
+  background: darkorange;
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 30px;
+  width: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
