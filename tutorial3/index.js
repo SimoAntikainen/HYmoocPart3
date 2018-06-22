@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const cors = require('cors')
+
 
 app.use(bodyParser.json())
+app.use(cors())
 
 let notes = [
   {
@@ -35,12 +38,12 @@ const logger = (request, response, next) => {
 
 app.use(logger)
 
-
+//Kaytetään vasta routejen jälkeen
 const error = (request, response) => {
   response.status(404).send({error: 'unknown endpoint'})
 }
 
-app.use(error)
+
 
 
 app.get('/', (req, res) => {
@@ -95,7 +98,9 @@ app.delete('/notes/:id', (request, response) => {
   response.status(204).end()
 })
 
-const PORT = 3010
+app.use(error)
+
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
